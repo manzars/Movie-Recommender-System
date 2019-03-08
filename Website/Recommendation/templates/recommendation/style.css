@@ -1,0 +1,221 @@
+
+        body {
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #4c4c4c;
+    margin: 0;
+    background-color: #f7d1d1;
+     font-family: 'Lato', sans-serif;
+    
+}
+@import url(https://fonts.googleapis.com/css?family=Lato:900);
+*, *:before, *:after{
+  box-sizing:border-box;
+}
+body{
+ 
+}
+div.foo{
+  width: 150%;
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px;
+}
+.letter{
+  display: inline-block;
+  font-weight: 500;
+  font-size: 3em;
+  margin: 0.2em;
+  position: relative;
+  color: #00B4F1;
+  transform-style: preserve-3d;
+  perspective: 400;
+  z-index: 1;
+}
+.letter:before, .letter:after{
+  position:absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top:0;
+  left:0;
+}
+
+.letter:before{
+  color: #fff;
+  text-shadow: 
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-15deg)
+    rotateZ(0deg);
+}
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color: #fafafa;
+  transform:
+    rotateX(0deg)
+    rotateY(-40deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(40deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
+}
+.header1 {
+    font-family: Roboto,Helvetica,Helvetica Neue,sans-serif;
+    color: #404d5b;
+}
+.header-actions{
+	padding-left: 3%;
+
+}
+    .header1 .big-header {
+    background-image :url('image2.jpg');
+    color: #fff;
+    padding: 120px 15px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+     
+    .base-container {
+    max-width: 850px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20px;
+}
+   .btn-sign-up {
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #f7d1ae;
+    border-color: transparent;
+    color: #1c79a6;
+    padding: 1%;
+    margin-top: 20px;
+    border-radius:0.4em;
+    border:0.16em solid rgba(255,255,255,0);
+}
+      .sign-in {
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #f7d1ae;
+    border-color: transparent;
+    color: #1c79a6;
+    padding: 1%;
+    margin-top: 20px;
+    border-radius:0.4em;
+    border:0.16em solid rgba(255,255,255,0);
+} 
+      .head2{
+          padding-bottom: 20px;
+          margin: 1em;
+
+      }
+      p {
+    margin: 0 0 10px;
+}
+      h2.section1-header{
+    margin-top: 0;
+    margin-bottom: 11px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #3bace1;
+    font-family: Raleway,Helvetica,Helvetica Neue,sans-serif;
+}
+   .section1{
+    max-width: 850px;
+    padding: 0 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20px;
+    color: rgba(0,0,0,.87);
+
+   }
+   .container1{
+    padding-top: 80px;
+    color: rgba(0,0,0,.);
+    box-sizing: border-box;
+    line-height: 1.42857143;
+   }   
+   .row{
+    font-size: 16px;
+    color: rgba(0,0,0,.87);
+   }
+   .col-md-4{
+
+    width: 33.333333333%;
+    float: left; 
+    position: relative;
+    min-height: 1px;
+    padding-left: 0px;
+    padding-right: 15px;  
+  }
+  .col-md-8{
+    width: 60%;
+    float: left; 
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px; 
+    box-sizing: border-box;
+    margin: 1em;
+  }
+
+ img{
+  vertical-align: middle;
+  display: block;
+	max-width: 100%;
+
+	height: auto;
+ }
+      
+   }
+   img.marketing-img {
+
+    background-color: #fff;
+    border: 1px solid #ddd;
+
+}
+  .section-header{
+      font-family: Roboto,Helvetica,Helvetica Neue,sans-serif;
+
+
+  }
+  
+  .base {
+    max-width: 830px;
+    padding: 0 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px; 
+}
+.text-center {
+    text-align: center;
+}
+a {
+    color: #3bace1;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+.site-version {
+    margin-top: 20px;
+    color: #bbb;
+}
+
+  
