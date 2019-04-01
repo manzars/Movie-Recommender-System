@@ -1,0 +1,328 @@
+{% load staticfiles %}
+{% csrf_token%}
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <title>Movies Now: Home</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+         Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+      <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+      <link href='{% static "css/bootstrap.css" %}' rel='stylesheet' type='text/css' />
+      <link href='{% static "css/style.css" %}' rel="stylesheet" type="text/css" media="all" />
+      <!-- start plugins -->
+      <script type="text/javascript" src='{% static "js/jquery-1.11.1.min.js" %}'></script>
+      <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+      <script src='{% static "js/responsiveslides.min.js" %}'></script>
+      <script>
+         $(function () {
+           $("#slider").responsiveSlides({
+            auto: true,
+            nav: true,
+            speed: 500,
+             namespace: "callbacks",
+             pager: true,
+           });
+         });
+      </script>
+      <style type="text/css">
+         .m_3{
+         background-color: #ED2B2D;
+         text-align: center;
+         color: green;
+         font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+         }
+         .message_ticker:hover {
+         -webkit-transition: 4s ease-in;  
+         -moz-transition: 4s ease-in;  
+         -o-transition: 4s ease-in;  
+         transition: 4s ease-in;  
+         text-indent: -300px;
+         }
+         .header {
+         width:100%
+         margin:0 auto;
+         background: white;
+         }
+         .message_ticker {
+         width: 100%;
+         height:25px;
+         overflow:hidden;
+         float:left;
+         border-right:1px solid #ED2B2D;
+         -webkit-transition: 0.5s ease-in;  
+         -moz-transition: 0.5s ease-in;  
+         -o-transition: 0.5s ease-in;  
+         transition: 0.5 s ease-in; 
+         }
+         .img2{
+         width: 100%;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="container_wrap">
+            <div class="header_top">
+               <div class="col-sm-3 logo"><a href="{% url 'index' %}"><img src="{% static 'images/logos.png' %}" alt=""/></a></div>
+               <div class="col-sm-3 header_right navbar-right">
+                  <ul class="header_right_box">
+                     {% if user.is_authenticated %}
+                     <li>
+                        <form method = 'POST' action = '/logout/'>
+                           {% csrf_token %}
+                           <input class = 'btn btn-danger 'type="submit" value = 'Logout'>
+                        </form>
+                     </li>
+                     {% else %}
+                     <li><img src="{% static 'images/p1.png' %}" alt=""/></li>
+                     <li>
+                        <p><a href="{% url 'login' %}">Manzar</a></p>
+                     </li>
+                     {% endif %}
+                     <div class="clearfix"> </div>
+                  </ul>
+               </div>
+               <div class="clearfix"> </div>
+            </div>
+            <div class="slider">
+               <div class="callbacks_container">
+                  <ul class="rslides" id="slider">
+                     <li>
+                        <img src='{% static "images/banner.jpg" %}' class="img-responsive" alt=""/>
+                        <div class="button">
+                           <a href="https://www.imdb.com/title/tt2015381" class="hvr-shutter-out-horizontal">Click Here</a>
+                        </div>
+                     </li>
+                     <li>
+                        <img src= '{% static "images/banner1.jpg" %}'class="img-responsive" alt=""/>
+                        <div class="button">
+                           <a href="https://www.imdb.com/title/tt3896198" class="hvr-shutter-out-horizontal">Click Here</a>
+                        </div>
+                     </li>
+                     <li>
+                        <img src='{% static "images/banner2.jpg" %}'class="img-responsive" alt=""/>
+                        <div class="button">
+                           <a href="https://www.imdb.com/title/tt0944947" class="hvr-shutter-out-horizontal">Click Here</a>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="content">
+               <div class="box_1">
+                  <h1 class="m_2">Featurd Movies</h1>
+                  <div class="clearfix"> </div>
+               </div>
+               <div class="box_2">
+                  <div class="row_4">
+                     <div class="col-md-3 grid_2">
+                        <div class="col_2">
+                           <ul class="list_4">
+                              <li>Rating : {{ rating.0 }}/5 </li>
+                              <li>Released Year : {{ year.0 }} </li>
+                              <div class="clearfix"> </div>
+                           </ul>
+                           <form id = 'form1' method = "get" action = "{% url 'single'%}" >
+                           <div class="m_5">
+                              <input type = "hidden" name = "id" value = "{{ids.0}}" >
+                              <input type = "image" class = "img-responsive img2" src ='{{link.0}}' >
+                                 <!-- <img src='{{ link.0 }}' class="img-responsive img2" alt=""/>    -->
+                                 <div class="caption1 header">
+                                    <p class="m_3 message_ticker"> {{ name.0}} </p>
+                                 </div>
+                           </div>
+                        </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                     </div>
+                     <div class="col-md-3 grid_2">
+                        <div class="col_2">
+                           <ul class="list_4">
+                              <li>Rating : {{ rating.1 }}/5 </li>
+                              <li>Released Year : {{ year.1 }} </li>
+                              <div class="clearfix"> </div>
+                           </ul>
+                           <form id = 'form1' method = "get" action = "{% url 'single'%}" >
+                           <div class="m_5">
+                              <input type = "hidden" name = "id" value = "{{ids.1}}" >
+                              <input type = "image" class = "img-responsive img2" src ='{{link.1}}' >
+                                 <!-- <img src='{{ link.0 }}' class="img-responsive img2" alt=""/>    -->
+                                 <div class="caption1 header">
+                                    <p class="m_3 message_ticker"> {{ name.1}} </p>
+                                 </div>
+                           </div>
+                        </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                     </div>
+                     <div class="col-md-3 grid_2">
+                        <div class="col_2">
+                           <ul class="list_4">
+                              <li>Rating : {{ rating.2 }}/5 </li>
+                              <li>Released Year : {{ year.2 }} </li>
+                              <div class="clearfix"> </div>
+                           </ul>
+                           <form id = 'form1' method = "get" action = "{% url 'single'%}" >
+                           <div class="m_5">
+                              <input type = "hidden" name = "id" value = "{{ids.2}}" >
+                              <input type = "image" class = "img-responsive img2" src ='{{link.2}}' >
+                                 <!-- <img src='{{ link.0 }}' class="img-responsive img2" alt=""/>    -->
+                                 <div class="caption1 header">
+                                    <p class="m_3 message_ticker"> {{ name.2}} </p>
+                                 </div>
+                           </div>
+                        </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                     </div>
+                     <div class="col-md-3 grid_2">
+                        <div class="col_2">
+                           <ul class="list_4">
+                              <li>Rating : {{ rating.3 }}/5 </li>
+                              <li>Released Year : {{ year.3 }} </li>
+                              <div class="clearfix"> </div>
+                           </ul>
+                           <form id = 'form1' method = "get" action = "{% url 'single'%}" >
+                           <div class="m_5">
+                              <input type = "hidden" name = "id" value = "{{ids.3}}" >
+                              <input type = "image" class = "img-responsive img2" src ='{{link.3}}' >
+                                 <!-- <img src='{{ link.0 }}' class="img-responsive img2" alt=""/>    -->
+                                 <div class="caption1 header">
+                                    <p class="m_3 message_ticker"> {{ name.3}} </p>
+                                 </div>
+                           </div>
+                        </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"> </div>
+                  <div class="box_1">
+                     <div class="row_2"></div>
+                     <div class="clearfix"> </div>
+                     <div class="col-md-3 grid_2">
+                        <div class="col_2">
+                           <ul class="list_4">
+                              <li>Rating : {{ rating.4 }}/5 </li>
+                              <li>Released Year : {{ year.4 }} </li>
+                              <div class="clearfix"> </div>
+                           </ul>
+                           <form id = 'form1' method = "get" action = "{% url 'single'%}" >
+                           <div class="m_5">
+                              <input type = "hidden" name = "id" value = "{{ids.4}}" >
+                              <input type = "image" class = "img-responsive img2" src ='{{link.4}}' >
+                                 <!-- <img src='{{ link.0 }}' class="img-responsive img2" alt=""/>    -->
+                                 <div class="caption1 header">
+                                    <p class="m_3 message_ticker"> {{ name.4}} </p>
+                                 </div>
+                           </div>
+                        </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                     </div>
+                     <div class="col-md-3 grid_2">
+                        <div class="col_2">
+                           <ul class="list_4">
+                              <li>Rating : {{ rating.5 }}/5 </li>
+                              <li>Released Year : {{ year.5 }} </li>
+                              <div class="clearfix"> </div>
+                           </ul>
+                           <form id = 'form1' method = "get" action = "{% url 'single'%}" >
+                           <div class="m_5">
+                              <input type = "hidden" name = "id" value = "{{ids.5}}" >
+                              <input type = "image" class = "img-responsive img2" src ='{{link.5}}' >
+                                 <!-- <img src='{{ link.0 }}' class="img-responsive img2" alt=""/>    -->
+                                 <div class="caption1 header">
+                                    <p class="m_3 message_ticker"> {{ name.5}} </p>
+                                 </div>
+                           </div>
+                        </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                     </div>
+                     <div class="col-md-3 grid_2">
+                        <div class="col_2">
+                           <ul class="list_4">
+                              <li>Rating : {{ rating.6 }}/5 </li>
+                              <li>Released Year : {{ year.6 }} </li>
+                              <div class="clearfix"> </div>
+                           </ul>
+                           <form id = 'form1' method = "get" action = "{% url 'single'%}" >
+                           <div class="m_5">
+                              <input type = "hidden" name = "id" value = "{{ids.6}}" >
+                              <input type = "image" class = "img-responsive img2" src ='{{link.6}}'>
+                                 <!-- <img src='{{ link.0 }}' class="img-responsive img2" alt=""/>    -->
+                                 <div class="caption1 header">
+                                    <p class="m_3 message_ticker"> {{ name.6}} </p>
+                                 </div>
+                           </div>
+                        </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                     </div>
+                     <div class="col-md-3 grid_2">
+                        <div class="col_2">
+                           <ul class="list_4">
+                              <li>Rating : {{ rating.7 }}/5 </li>
+                              <li>Released Year : {{ year.7 }} </li>
+                              <div class="clearfix"> </div>
+                           </ul>
+                           <form id = 'form1' method = "get" action = "{% url 'single'%}" >
+                           <div class="m_5">
+                              <input type = "hidden" name = "id" value = "{{ids.7}}" >
+                              <input type = "image" class = "img-responsive img2" src ='{{link.7}}' >
+                                 <!-- <img src='{{ link.0 }}' class="img-responsive img2" alt=""/>    -->
+                                 <div class="caption1 header">
+                                    <p class="m_3 message_ticker"> {{ name.7}} </p>
+                                 </div>
+                           </div>
+                        </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="clearfix"> </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      <div class="container">
+         <footer id="footer">
+            <div id="footer-3d">
+               <div class="gp-container">
+                  <span class="first-widget-bend"> </span>
+               </div>
+            </div>
+            <div id="footer-widgets" class="gp-footer-larger-first-col">
+               <div class="gp-container">
+                  <div class="footer-widget footer-1">
+                     <div class="wpb_wrapper">
+                        <img src="{% static 'images/logos.png' %}" alt=""/>
+                     </div>
+                     <br>
+                     <p>It is a long established fact that a reader will be distracted by the readable content of a page.</p>
+                     <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
+                  </div>
+                  <div class="footer_box">
+                     <div class="col_1_of_3 span_1_of_3">
+                        <h3>Follow Us</h3>
+                        <ul class="first">
+                           <li><a href="https://www.facebook.com">Facebook</a></li>
+                           <li><a href="https://www.twitter.com">Twitter</a></li>
+                           <li><a href="htts://www.instagram.com/manz.ar">Instagram</a></li>
+                        </ul>
+                        <div class="copy">
+                           <p>&copy; Made by <a href="manzars.github.io" target="_blank"> Team ERRORist</a></p>
+                        </div>
+                     </div>
+                     <div class="clearfix"> </div>
+                  </div>
+                  <div class="clearfix"> </div>
+               </div>
+            </div>
+         </footer>
+      </div>
+   </body>
+</html>
